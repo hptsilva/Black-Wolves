@@ -1,0 +1,297 @@
+@font-face {
+    src: url("../../css/fonts/TextaBook.ttf") format("truetype");
+    font-family: "TextaBook";
+    font-display: block;
+}
+
+@font-face {
+    src: url("../../css/fonts/TextaBold.ttf") format("truetype");
+    font-family: "TextaBold";
+    font-display: block;
+}
+
+body{
+    background-color:#edf0fb;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    user-select: none;
+}
+
+input, select {
+    border-radius: 0px !important; 
+}
+
+label {
+    font-family: "TextaBook", Helvetica;
+}
+
+#nav {
+    padding: 0px 50px 0px 50px;
+    li {
+        margin: 10px;
+        color: White;
+        cursor: pointer;
+    }
+    span {
+        font-family: "TextaBook", Helvetica;
+        color: White;
+        font-size: 20px;
+        &:hover{
+            color:#fc6e0d;
+        }
+    }
+}
+
+.navbar-toggler{
+    
+    span {
+        color: Black;
+        font-size: 50px !important;
+    }
+}
+
+#opcoes {
+    margin-bottom: 60px;
+}
+
+.btn-secondary {
+    font-family: "TextaBold", Helvetica;
+    color: #EDF0FB;
+    background-color: #252D3A;
+}
+
+.btn-danger {
+    border-radius: 0px;
+    font-family: "TextaBold", Helvetica;
+}
+
+.builds{
+
+    h5 {
+        font-family: "TextaBold", Helvetica;
+    }
+
+}
+
+.offcanvas {
+    background-color: #252D3A;
+    padding: 0px;
+}
+
+.offcanvas-header {
+   background-color:#EDF0FB;
+
+   h4 {
+    font-family: "TextaBold", Helvetica;
+   }
+}
+
+.offcanvas-body {
+    
+    p {
+        color: White;
+        font-family: "TextaBook", Helvetica;
+        font-size: 18px;
+    }
+}
+
+.offcanvas-body p:hover {
+    color: #fc6e0d;
+}
+
+.btn-close {
+    opacity: 100%;
+}
+
+.modal {
+    --bs-modal-inner-border-radius: 0px;
+    --bs-border-radius-lg: 0px;
+}
+
+.modal-content{
+    background-color: #252D3A;
+}
+
+.modal-header {
+    background-color:#EDF0FB;
+}
+
+.modal-header {
+    
+    h1 {
+        font-family: "TextaBold", Helvetica;
+        font-weight: bold;
+    }
+}
+
+.modal-body {
+    
+    label{
+        font-family: "TextaBook", Helvetica;
+        color: Black !important;
+    }
+}
+
+.sair {
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    background-color: transparent;
+    border-color:transparent;
+    color: White;
+    border: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 23px;
+    margin-right: 50px;
+    &:hover {
+        color: Red !important;
+    }
+}
+
+#perfil {
+    h1 {
+        font-family: "TextaBold", Helvetica;
+        color: Black;
+    }
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin-left: 50px;
+}
+
+#topo {
+    background-color: #252D3A;
+}
+
+.perfil-descricao {
+
+    text-align: start;
+    p{
+        font-family: "TextaBook", Helvetica;
+        font-size: 20px;
+        color: black;
+        text-align: justify;
+    }
+
+}
+
+.polaroid {
+    background: #eee;
+    border: 1px solid #fff;
+    padding: 5px 5px 20px 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.alert-danger {
+    font-family: "TextaBold", Helvetica;
+    font-size: 17px;
+}
+
+.border-primary-subtle {
+    border-color: #fc6e0d !important;
+}
+
+.btn-success {
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+    border-radius: 0px;
+}
+
+.btn-primary, .btn-warning {
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+    border-radius: 0px;
+    background-color: #252d3a;
+    --bs-btn-active-bg: #242d3a;
+    --bs-btn-active-color: #fc6e0d;
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-focus-shadow-rgb: transparent;
+    border-color: transparent;
+}
+
+.btn-primary:hover {
+    color:#fc6e0d;
+    background-color: #252d3a;
+    border-color: transparent;
+}
+
+.btn-primary:active {
+    color:#fc6e0d;
+    background-color: #252d3a;
+    border-color: transparent;
+}
+
+.btn-warning {
+    color: White;
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    color: black;
+    background-color: #ffc107;
+    border-color: transparent;
+}
+
+.btn-warning:active {
+    color: black;
+    background-color: #ffc107;
+    border-color: transparent;
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: #252D3A;
+    --bs-dropdown-border-radius: 0px;
+    a {
+        color: white;
+    }
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    color: #fc6e0d;
+}
+
+.nav-opcoes-index {
+    margin-bottom: 100px;
+}
+
+.dropdown-opcoes {
+    font-size: 21px;
+    font-family: "TextaBook", Helvetica;
+    background-color: #252D3A;
+    color: White;
+    padding: 6px 12px 6px 12px;
+
+    &:hover{
+        color:#fc6e0d;
+    }
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    background-color: #E9E9F2;
+    width: 100%;
+    color: black;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+
+    span {
+        font-size: 20px;
+        font-family: "TextaBook", Helvetica;
+    }
+}

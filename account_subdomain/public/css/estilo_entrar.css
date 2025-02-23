@@ -1,0 +1,219 @@
+@font-face {
+    font-family: "TextaBook";
+    src: url('fonts/TextaBook.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "TextaBold";
+    src: url('fonts/TextaBold.ttf') format('truetype');
+}
+
+@media(min-width: 576px){
+    .formulario {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media(min-width: 768px){
+    .formulario {
+        padding-left: 180px;
+        padding-right: 180px;
+    }
+}
+
+@media(min-width: 992px){
+    .formulario {
+        padding-left: 280px;
+        padding-right: 280px;
+    }
+}
+
+@media(min-width: 1200px){
+    .formulario {
+        padding-left: 380px;
+        padding-right: 380px;
+    }
+}
+
+@media(min-width: 1400px){
+    .formulario {
+        padding-left: 480px;
+        padding-right: 480px;
+    }
+}
+
+body{
+    background-color:#EDF0FB;
+}
+
+a {
+    text-decoration: none;
+}
+
+br, .form-logo {
+    user-select: none;
+}
+
+#container-formulario {
+    margin-top: 23vh;
+    margin-bottom: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;  
+}
+
+#container-formulario h1 {
+    margin-top: 16px;
+    color: #fc6e0d;
+    font-family: "TextaBold", Helvetica;
+}
+
+.mensagem-erro {
+    color: Red;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: "TextaBold", Helvetica;
+    font-weight: 600;
+}
+
+#mensagem-cadastrar {
+    font-family: "TextaBook", Helvetica;
+}
+
+.form-control:focus {
+  border-color:  #fc6e0d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.form-entrar {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.form-logo {
+    background-color: #252D3A;
+    padding: 8px;
+}
+
+.form-logo span {
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    margin: 5px;
+    color: White
+}
+
+.formulario input {
+    text-align: center;
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    border-radius: 0px;
+}
+
+.formulario label {
+    color: Black !important;
+    font-family: "TextaBook", Helvetica;
+    font-size: 16px;
+}
+
+.border-primary-subtle {
+    border-color: #fc6e0d !important;
+}
+
+.btn-success {
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.modal {
+    --bs-modal-inner-border-radius: 0px;
+    --bs-border-radius-lg: 0px;
+}
+
+.form-control {
+    border-radius: 0px;
+    padding-top: 20px;
+}
+
+.signup {
+    font-family: "TextaBold", Helvetica;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.signup:hover {
+    color: #fc6e0d;
+}
+
+.modal-content{
+    background-color: #EDF0FB;
+}
+
+.modal-header {
+    background-color:#252D3A;
+}
+
+.modal-header h1 {
+    font-family: "TextaBook", Helvetica !important;
+    color: White !important;
+    margin-top: 0px !important;
+}
+
+.modal-body {
+    font-family: "TextaBook", Helvetica !important;
+    font-size: 20px;
+}
+
+.modal-body label{
+    color: Black !important;
+    font-family: "TextaBook", Helvetica;
+    font-size: 16px;
+}
+
+.btn-close {
+    opacity: 100%;
+    filter: invert(100%);
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    background-color: #E9E9F2;
+    width: 100%;
+    color: Black;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.creditos {
+    float: right;
+    color: black;
+    font-family: "TextaBook", Helvetica;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
+.creditos-nome {
+    padding: 0px 0px 3px 0px; 
+    font-size: 16px; 
+    color: black;
+    text-decoration-line: underline;
+    text-decoration-color: #fc6e0d;
+}
+
+.creditos-nome:hover {
+    color:#fc6e0d !important;
+}
+
+.popover-body {
+    width: 225px;
+}
+
+.rodape span{
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+}

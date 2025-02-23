@@ -1,0 +1,337 @@
+#tc-ghost-recon:hover{
+    color: #edf0fb !important;
+}
+
+@font-face {
+    font-family: "Helvetica Neue LT";
+    src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype'),
+         url('fonts/NeueHaasDisplayLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "TextaBook";
+    src: url('fonts/TextaBook.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "TextaBold";
+    src: url('fonts/TextaBold.ttf') format('truetype');
+}
+
+
+body{
+    background-color:#edf0fb;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    user-select: none;
+}
+
+input, select {
+    border-radius: 0px !important; 
+}
+
+label {
+    font-family: "TextaBook", Helvetica;
+}
+
+.navbar-toggler span {
+    color: Black;
+    font-size: 50px !important;
+}
+
+.navbar-nav a {
+    font-family: "TextaBold", Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: White
+}
+
+.navbar-nav a:hover {
+    color: #fc6e0d;
+}
+
+.opcoes-conta {
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 30px;
+}
+
+.opcoes-conta a {
+    color: White;
+}
+
+#opcoes {
+    margin-bottom: 60px;
+}
+
+.btn-secondary {
+    font-family: "TextaBold", Helvetica;
+    color: #EDF0FB;
+    background-color: #252D3A;
+}
+
+.btn-danger {
+    border-radius: 0px;
+    font-family: "TextaBold", Helvetica;
+}
+
+.builds {
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color:#252D3A;
+    margin-bottom: 20px;
+}
+
+.builds h5 {
+    font-family: "TextaBold", Helvetica;
+}
+
+.opcoes-conta:hover, .opcoes-conta a:hover {
+    color: #fc6e0d;
+}
+
+.offcanvas {
+    background-color: #252D3A;
+    padding: 0px;
+}
+
+.offcanvas-header {
+   background-color:#EDF0FB;
+}
+
+.offcanvas-header h4 {
+    font-family: "TextaBold", Helvetica;
+}
+
+.offcanvas-body p{
+    color: White;
+    font-family: "TextaBook", Helvetica;
+    font-size: 18px;
+}
+
+.offcanvas-body p:hover {
+    color: #fc6e0d;
+}
+
+.modal {
+    --bs-modal-inner-border-radius: 0px;
+    --bs-border-radius-lg: 0px;
+}
+
+.modal-content{
+    background-color: #252D3A;
+}
+
+.modal-header {
+    background-color:#EDF0FB;
+}
+
+.modal-header h1 {
+    font-family: "TextaBold", Helvetica;
+    font-weight: bold;
+}
+
+.modal-body label{
+    font-family: "TextaBook", Helvetica;
+    color: Black !important;
+}
+
+.btn-close {
+    opacity: 100%;
+}
+
+.sair {
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    background-color: transparent;
+    border-color:transparent;
+    color: White;
+    border: 0px;
+    padding: 0px;
+}
+
+.sair:hover {
+    color: Red !important;
+}
+
+
+#nav li {
+    margin: 10px;
+    color: White;
+    cursor: pointer;
+}
+
+#nav span{
+    font-family: "TextaBook", Helvetica;
+    color: White;
+    font-size: 20px;
+}
+
+#nav span:hover {
+    color:#fc6e0d;
+}
+
+#perfil {
+    margin-bottom: 20px;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin-left: 50px;
+}
+
+#topo {
+    background-color: #252D3A;
+}
+
+#perfil h1 {
+    font-family: "TextaBold", Helvetica;
+    color: Black;
+}
+
+.perfil-descricao p{
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    color: black;
+    text-align: justify;
+}
+
+.polaroid {
+    background: #eee;
+    border: 1px solid #fff;
+    padding: 5px 5px 20px 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.perfil-descricao {
+    text-align: start;
+}
+
+.card {
+    background-color: #252D3A;
+    border-radius: 0px;
+}
+
+.placeholder {
+    background-color: #E9E9F2;
+}
+
+.mensagem-erro {
+    color: Red;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-family: "TextaBold", Helvetica;
+    font-weight: 600;
+}
+
+.alert-danger {
+    font-family: "TextaBold", Helvetica;
+    font-size: 17px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color:  #fc6e0d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.form-check-input:checked {
+    background-color:#fc6e0d;
+    border-color: transparent;
+}
+
+.border-primary-subtle {
+    border-color: #fc6e0d !important;
+}
+
+.btn-success {
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+    border-radius: 0px;
+}
+
+.btn-primary {
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+    border-radius: 0px;
+    background-color: #252d3a;
+    --bs-btn-active-bg: #242d3a;
+    --bs-btn-active-color: #fc6e0d;
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-focus-shadow-rgb: transparent;
+    border-color: transparent;
+}
+
+.btn-primary:hover {
+    color:#fc6e0d;
+    background-color: #252d3a;
+    border-color: transparent;
+}
+
+.btn-primary:focus {
+    color:#fc6e0d;
+    background-color: #252d3a;
+    border-color: transparent;
+    
+}
+
+.form-text {
+    color: White;
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.cadastrar {
+    color: White;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: #fc6e0d;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.cadastrar:hover {
+    color: #fc6e0d;
+}
+
+.builds-content h1{
+    font-family: "TextaBook", Helvetica;
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: #252D3A;
+    --bs-dropdown-border-radius: 0px;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+#minhas-builds {
+    font-size: 30px;
+    font-family: "TextaBook", Helvetica;
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    background-color: #E9E9F2;
+    width: 100%;
+    color: black;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.rodape span{
+    font-size: 20px;
+    font-family: "TextaBook", Helvetica;
+}
