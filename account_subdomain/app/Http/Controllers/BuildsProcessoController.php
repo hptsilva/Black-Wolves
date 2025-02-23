@@ -22,8 +22,8 @@ class BuildsProcessoController extends Controller
 
         if(isset($build)){
 
-            $caminho_planilha = "/home/u554131440/public_html/public/planilhas/$build->classe/$build->code.ods";
-            $caminho_imagem = "/home/u554131440/public_html/public/img/builds/$build->code.webp";
+            $caminho_planilha = "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\\$build->classe/$build->code.ods";
+            $caminho_imagem = "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\builds\\$build->code.webp";
             unlink($caminho_imagem);
             unlink($caminho_planilha);
             $build->delete();
@@ -147,20 +147,16 @@ class BuildsProcessoController extends Controller
             # Altere o caminho do diretório para o servidor de hospedagem
             switch($request->get('classe-build')){
                 case 'dps':
-                    $diretorio = '/home/u554131440/public_html/public/planilhas/dps/';
-                    //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/dps/';
+                    $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\dps\\';
                     break;
                 case 'tank':
-                    $diretorio = '/home/u554131440/public_html/public/planilhas/tank/';
-                    //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/tank/';
+                    $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\tank\\';
                     break;
                 case 'gadget':
-                    $diretorio = '/home/u554131440/public_html/public/planilhas/gadget/';
-                    //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/gadget/';
+                    $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\gadget\\';
                     break;
                 case 'raid':
-                    $diretorio = '/home/u554131440/public_html/public/planilhas/raid/';
-                    //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/raid/';
+                    $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\raid\\';
                     break;
                 default:
                 return response()->json([
@@ -384,7 +380,7 @@ class BuildsProcessoController extends Controller
                 $file = $request->file('imagem-build');
                 $extension = $file->getClientOriginalExtension();
                 $filename = $chave_unica.'.'.$extension;
-                $path = "/home/u554131440/public_html/public/img/builds";
+                $path = "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\builds";
                 //$path = "/home/karingorok/Área de Trabalho/public_html/public/img/builds";
                 $file->move($path, $filename);
             } catch (Exception $erro){
@@ -406,7 +402,7 @@ class BuildsProcessoController extends Controller
             } catch (Exception $erro){
                 unlink($diretorio.$arquivo); //apagará a planilha no caso de erro
                 //unlink('/media/karingorok/DISPOSITIVOS/account_subdomain/public/img/builds/'.$chave_unica.'.webp'); //apagará a imagem no caso de erro (Alterar diretório)
-                unlink('/home/u554131440/public_html/public/img/builds/'.$chave_unica.'.webp'); //apagará a imagem no caso de erro (Alterar diretório)
+                unlink('C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\builds\\'.$chave_unica.'.webp'); //apagará a imagem no caso de erro (Alterar diretório)
                 return response()->json([
                     'sucesso' => false,
                     'mensagem' => ['mensagem' => "Não foi possível salvar o conteúdo. Erro 23."],
@@ -450,7 +446,7 @@ class BuildsProcessoController extends Controller
             try{
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Ods();
                 $classe = $build->classe;
-                $arquivo = "/home/u554131440/public_html/public/planilhas/$classe/$build->code.ods";
+                $arquivo = "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\\$classe\\$build->code.ods";
                 //$arquivo = "/home/karingorok/Área de Trabalho/public_html/public/planilhas/$classe/$build->code.ods";
                 $spreadsheet = $reader->load($arquivo); 
                 $worksheet = $spreadsheet->getActiveSheet();            
@@ -713,20 +709,16 @@ class BuildsProcessoController extends Controller
         # Altere o caminho do diretório para o servidor de hospedagem
         switch($build->classe){
             case 'dps':
-                $diretorio = '/home/u554131440/public_html/public/planilhas/dps/';
-                //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/dps/';
+                $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\dps\\';
                 break;
             case 'tank':
-                $diretorio = '/home/u554131440/public_html/public/planilhas/tank/';
-                //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/tank/';
+                $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\tank\\';
                 break;
             case 'gadget':
-                $diretorio = '/home/u554131440/public_html/public/planilhas/gadget/';
-                //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/gadget/';
+                $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\gadget\\';
                 break;
             case 'raid':
-                $diretorio = '/home/u554131440/public_html/public/planilhas/raid/';
-                //$diretorio = '/home/karingorok/Área de Trabalho/public_html/public/planilhas/raid/';
+                $diretorio = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\raid\\';
                 break;
             default:
                 return response()->json([
@@ -880,8 +872,7 @@ class BuildsProcessoController extends Controller
         $nome_build = $request->get('nome-build');
         $classe = $request->get('classe-build');
         if ($classe != $build->classe){
-            rename($arquivo, "/home/u554131440/public_html/public/planilhas/$classe/$build->code.ods");
-            //rename($arquivo,"/home/karingorok/Área de Trabalho/public_html/public/planilhas/$classe/$build->code.ods");
+            rename($arquivo, "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\\$classe\\$build->code.ods");
         }
         $build->nome_build = $nome_build;
         $build->classe = $classe;
@@ -892,8 +883,7 @@ class BuildsProcessoController extends Controller
                 'mensagem' => 'Build alterada com sucesso.',
             ], 200);
         }
-        $path = "/home/u554131440/public_html/public/img/builds/";
-        //$path = "/home/karingorok/Área de Trabalho/public_html/public/img/builds/";
+        $path = "C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\builds\\";
         unlink("$path$build->code.webp");
         $extension = $file->getClientOriginalExtension();
         $filename = $build->code.'.'.$extension;

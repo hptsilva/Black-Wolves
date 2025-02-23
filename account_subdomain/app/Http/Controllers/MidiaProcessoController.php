@@ -39,8 +39,8 @@ class MidiaProcessoController extends Controller
             // pesquisa no banco de dados se a id do vídeo existe e quem solicitou a exclusão é o autor do vídeo.
             $video = $videos->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if (isset($video)){
-                $path = '/home/u554131440/public_html/public/videos/';
-                $path_thumbnail = '/home/u554131440/public_html/public/videos/thumbnail/';
+                $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\\';
+                $path_thumbnail = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\thumbnail\\';
                 try{
 
                     // apagar o arquivo do servidor e de sua referência no banco de dados
@@ -70,7 +70,7 @@ class MidiaProcessoController extends Controller
 
             $screenshot = $screenshots->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if(isset($screenshot)) {
-                $path = '/home/u554131440/public_html/public/img/screenshots/' ;
+                $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\screenshots\\' ;
                 try {
 
                     unlink($path.$screenshot->nome_arquivo);
@@ -191,13 +191,13 @@ class MidiaProcessoController extends Controller
             $file_video = $request->file('video-midia');
             $extension = $arquivo_video->getClientOriginalExtension();
             $filename_video = $chave_unica.'.'.$extension;
-            $path = "/home/u554131440/public_html/public/videos";
+            $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos';
             $file_video->move($path, $filename_video);
             
             $file_thumbnail = $request->file('video-midia-thumbnail');
             $extension = $arquivo_thumbnail->getClientOriginalExtension();
             $filename_thumbnail = $chave_unica.'.'.$extension;
-            $path = "/home/u554131440/public_html/public/videos/thumbnail";
+            $path ='C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\thumbnail';
             $file_thumbnail->move($path, $filename_thumbnail);
             
             $video = new Videos();
