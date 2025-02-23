@@ -3,18 +3,9 @@
 
 use App\Models\Builds;
 
-//include '/home/karingorok/Documentos/Code/public_html/resources/views/processo_planilha/ler_planilha.blade.php';
-//include 'D:\public_html\resources\views\processo_planilha\ler_planilha.blade.php';
-include '/home/u554131440/public_html/resources/views/processo_planilha/ler_planilha.blade.php';
-//include 'C:\Users\humbe\OneDrive\Área de Trabalho\public_html\resources\views\processo_planilha\ler_planilha.blade.php';
-//include '/media/karingorok/E4D3-47B8/public_html/resources/views/processo_planilha/ler_planilha.blade.php';
+include 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\resources\views\processo_planilha\ler_planilha.blade.php';
 
-
-$caminho = '/home/u554131440/public_html/public/planilhas/dps/';
-//$caminho = 'C:\Users\humbe\OneDrive\Área de Trabalho\public_html\public\planilhas\dps\\';
-//$caminho = 'D:\public_html\public\planilhas\dps\\';
-//$caminho = '/home/karingorok/Documentos/Code/public_html/public/planilhas/dps/';
-//$caminho = '/media/karingorok/E4D3-47B8/public_html/public/planilhas/dps/';
+$caminho = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\dps\\';
 
 $instance = new LerPlanilha();
 $build = new Builds();
