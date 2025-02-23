@@ -1,0 +1,337 @@
+@font-face {
+    font-family: "Helvetica Neue LT";
+    src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype'),
+         url('fonts/NeueHaasDisplayLight.otf') format('opentype');
+    font-display: block;
+}
+
+@font-face {
+    font-family: "TextaBook";
+    src: url('fonts/TextaBook.ttf') format('truetype');
+    font-display: block;
+}
+
+@font-face {
+    font-family: "TextaBold";
+    src: url('fonts/TextaBold.ttf') format('truetype');
+    font-display: block;
+}
+
+@media(max-width: 900px) {
+    .nome-conta {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    #header {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .navbar-collapse{
+        position: relative;
+        z-index: 3;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+body{
+    background-color:#0F0F0F;
+}
+
+header {
+    background-color: Black;
+    height: 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    user-select: none;
+}
+
+.navbar-toggler {
+    color: White;
+    font-size: 50px;
+}
+
+.navbar-collapse {
+    background-color: Black;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    margin-top: 18px;
+    margin-left: 50px;
+}
+
+.navbar-nav {
+    --bs-nav-link-hover-color: #fc6e0d;
+}
+
+.navbar-nav a {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: White
+}
+
+.navbar-nav a:hover {
+    color: #fc6e0d;
+}
+
+.conta-autenticado {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+.conta-autenticado button, li {
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.conta-autenticado button {
+    color:#fc6e0d;
+    font-size: 20px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.conta-autenticado button:hover {
+    background-color: transparent;
+    color: White;
+    border-color: transparent;
+}
+
+.conta-autenticado button:focus {
+    background-color: transparent;
+    color:#fc6e0d;
+    border-color: transparent;
+}
+
+.conta-autenticado button:active {
+    --bs-btn-active-bg: transparent;
+    background-color: transparent;
+    color:#fc6e0d;
+    border-color: transparent;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.btn {
+    --bs-btn-border-width: 0px;
+}
+
+.btn-dark {
+    --bs-btn-active-bg: rgb(24, 24, 24);;
+    --bs-btn-hover-bg: #212529;
+    border-radius: 0px;
+    color: White;
+}
+
+.btn-dark:hover {
+    color: #fc6e0d !important;
+}
+
+.btn-dark:hover {
+    color: White;
+}
+
+.dropdown-menu{
+    background-color: black;
+    --bs-dropdown-border-radius: 5px;
+}
+
+.dropdown-item:hover{
+    background-color: transparent;
+    color:#fc6e0d;
+}
+
+.dropdown-item {
+    color: White;
+}
+
+#sair {
+    text-decoration: underline;
+    text-decoration-color: Red;
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 17px;
+}
+
+#sair:hover {
+    color: Red;
+}
+
+.conta {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+#conta {
+    height: 40px;
+    margin-top: 20px;
+}
+
+#icon-conta {
+    width: 40px;
+    height: 40px;
+}
+
+#conteudo-media {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.titulo {
+    background-color: #eb7425;
+    padding: 6px 0px 5px 15px;
+}
+
+.titulo h1{
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: White;
+    margin-bottom: 0px;
+}
+
+.titulo-media {
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: White;
+    float:right;
+    font-size: 40px;
+    padding-top: 8px;
+}
+
+.nav-media {
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
+.btn-secondary {
+    background-color: rgb(24, 24, 24);
+    border-color: transparent;
+    font-family: "Helvetica Neue LT", Helvetica;
+    border-radius: 0px;
+    font-size: 20px;
+    --bs-btn-active-bg: rgb(24, 24, 24);
+    --bs-btn-hover-bg: rgb(24, 24, 24);
+    --bs-btn-active-color: #fc6e0d;
+    margin: 5px;
+}
+
+.btn-secondary:hover {
+    color: #fc6e0d;
+}
+
+.pagination {
+    --bs-pagination-active-bg: transparent;
+    --bs-pagination-active-border-color: transparent;
+    --bs-pagination-disabled-bg: transparent;
+    --bs-pagination-disabled-border-color: transparent;
+    --bs-pagination-focus-box-shadow: transparent;
+    --bs-pagination-active-color: #fc6e0d;
+    --bs-pagination-focus-color: #fc6e0d;
+    --bs-pagination-focus-bg: transparent;
+    margin-bottom: 0px;
+}
+
+.opcoes {
+    display: none;
+}
+
+.imagem img{
+    max-width: 450px;
+    max-height: 337.5px;
+    margin: 10px;
+}
+
+.img-thumbnail {
+    border-radius: 0px;
+    padding: 5px 5px 30px 5px;
+    background-color: rgb(238, 238, 238);
+}
+
+.page-link {
+    background-color: transparent;
+    color: White;
+    border-color: transparent;
+    font-size: 25px;
+}
+
+.page-item {
+    border-color: transparent;
+}
+
+.page-link:hover {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.page-link:hover {
+    color: #fc6e0d;
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    z-index: 3;
+    background-color: Black;
+    width: 100%;
+    color: White;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.creditos {
+    float: right;
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
+.creditos-nome {
+    padding: 0px 0px 3px 0px; 
+    font-size: 16px; 
+    color: White;
+    text-decoration-line: underline;
+    text-decoration-color: #fc6e0d;
+}
+
+.creditos-nome:hover {
+    color:#fc6e0d !important;
+}
+
+.popover-body {
+    width: 225px;
+}
+
+.rodape span{
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}

@@ -1,0 +1,397 @@
+@font-face {
+    font-family: "Helvetica Neue LT";
+    src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype'),
+         url('fonts/NeueHaasDisplayLight.otf') format('opentype');
+    font-display: block;
+}
+
+@font-face {
+    font-family: "TextaBook";
+    src: url('fonts/TextaBook.ttf') format('truetype');
+    font-display: block;
+}
+
+@font-face {
+    font-family: "TextaBold";
+    src: url('fonts/TextaBold.ttf') format('truetype');
+    font-display: block;
+}
+
+@media(max-width: 768px) {
+    .logo {
+        display: none;
+    }
+    #header {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .navbar-collapse{
+        position: relative;
+        z-index: 3;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+body{
+    background-color:#0F0F0F;
+}
+
+header {
+    background-color: Black;
+    height: 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    user-select: none;
+}
+
+.navbar-toggler {
+    color: White;
+    font-size: 50px;
+}
+
+.navbar-collapse {
+    background-color: Black;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    margin-top: 18px;
+    margin-left: 50px;
+}
+
+.navbar-nav {
+    --bs-nav-link-hover-color: #fc6e0d;
+}
+
+.navbar-nav a {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: White
+}
+
+.navbar-nav a:hover {
+    color: #fc6e0d;
+}
+
+.perfil {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.perfil h6 {
+    font-size: 22px;
+    margin-top: 15px;
+    margin-right:10px;
+}
+
+.perfil a {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 16px;
+    color: White;
+}
+
+.perfil a:hover {
+    color: #fc6e0d;
+}
+
+.sair {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 18px;
+    background-color: transparent;
+    border-color:transparent;
+    color: White;
+    border: 0px;
+    padding: 0px;
+}
+
+.sair:hover {
+    color: Red !important;
+}
+
+.conta-autenticado button, li {
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.conta-autenticado button {
+    color:#fc6e0d;
+    font-size: 20px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.conta-autenticado button:hover {
+    background-color: transparent;
+    color: White;
+    border-color: transparent;
+}
+
+.conta-autenticado button:focus {
+    background-color: transparent;
+    color:#fc6e0d;
+    border-color: transparent;
+}
+
+.conta-autenticado button:active {
+    --bs-btn-active-bg: transparent;
+    background-color: transparent;
+    color:#fc6e0d;
+    border-color: transparent;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.btn {
+    --bs-btn-border-width: 0px;
+}
+
+.btn-dark {
+    --bs-btn-active-bg: rgb(24, 24, 24);;
+    --bs-btn-hover-bg: #212529;
+    border-radius: 0px;
+    color: White;
+}
+
+.btn-dark:hover {
+    color: #fc6e0d !important;
+}
+
+.btn-dark:hover {
+    color: White;
+}
+
+.dropdown-menu{
+    background-color: black;
+    --bs-dropdown-border-radius: 5px;
+}
+
+.dropdown-item:hover{
+    background-color: transparent;
+    color:#fc6e0d;
+}
+
+.dropdown-item {
+    color: White;
+}
+
+.conteudo-media {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.conteudo-media h1 {
+    color: White;
+    font-weight: bold;
+    font-family: "Helvetica Neue LT", Helvetica;
+    margin-bottom: 40px;
+}
+
+.titulo {
+    background-color: #eb7425;
+    padding-right: 10px;
+}
+
+.titulo-media {
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: White;
+    float:right;
+    font-size: 40px;
+    padding-top: 8px;
+}
+
+.nav-media {
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
+.btn-secondary {
+    background-color: rgb(24, 24, 24);
+    border-color: transparent;
+    font-family: "Helvetica Neue LT", Helvetica;
+    border-radius: 0px;
+    font-size: 20px;
+    --bs-btn-active-bg: rgb(24, 24, 24);
+    --bs-btn-hover-bg: rgb(24, 24, 24);
+    --bs-btn-active-color: #fc6e0d;
+    margin: 5px;
+}
+
+.btn-secondary:hover {
+    color: #fc6e0d;
+}
+
+.pagination {
+    --bs-pagination-active-bg: #fc6e0d;
+    --bs-pagination-active-border-color: transparent;
+    --bs-pagination-disabled-bg: transparent;
+    --bs-pagination-disabled-border-color: transparent;
+    --bs-pagination-focus-box-shadow: transparent;
+    --bs-pagination-focus-bg: transparent;
+    --bs-pagination-focus-color: #fc6e0d;
+    float: right;
+}
+
+.opcoes {
+    display: none;
+}
+
+.imagem img{
+    max-width: 300px;
+    margin: 10px;
+}
+
+.imagem img:hover {
+    transform: scale(130%) rotate(1.5deg);
+}
+
+.img-thumbnail {
+    border-radius: 0px;
+    width: 300px;
+    padding: 5px 5px 30px 5px;
+    background-color: rgb(238, 238, 238);
+}
+
+.page-link {
+    background-color: transparent;
+    color: White;
+    border-color: transparent;
+    font-size: 20px;
+}
+
+.page-item {
+    border-color: transparent;
+}
+
+.page-link:hover {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.page-link:hover {
+    color: #fc6e0d;
+}
+
+.carousel {
+    margin-bottom: 42px;
+}
+
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.carousel-item h5, p {
+    color: White;
+    position: relative;
+    z-index: 2;
+}
+
+#videosCarrossel p {
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+#videosCarrossel h1 {
+    font-family: "TextaBold", Helvetica;
+    color: White;
+}
+
+.modal {
+    --bs-modal-inner-border-radius: 0px;
+    --bs-border-radius-lg: 0px;
+}
+
+.modal-content {
+    background-color:transparent;
+    border-color: transparent;
+}
+
+.modal-header{
+    background-color: #0f0f0f;
+}
+
+.modal-header h1 {
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: #fc6e0d;
+}
+
+.modal-body {
+    text-align: center;
+    padding: 0px;
+}
+
+.btn-close {
+    opacity: 100%;
+    filter: invert(100%);
+}
+
+.video {
+    list-style-type: square;
+    color: White;
+}
+
+.video img {
+    width: 250px;
+}
+
+.video img:hover {
+    border-radius: 15px;
+    transform: scale(103%);
+    transition: 0.3s;
+}
+
+.video h4 {
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.video span{
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    z-index: 3;
+    background-color: Black;
+    width: 100%;
+    color: White;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.rodape span{
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}

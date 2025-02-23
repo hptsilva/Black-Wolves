@@ -1,0 +1,351 @@
+@font-face {
+    font-family: "Helvetica Neue LT";
+    src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype'),
+         url('fonts/NeueHaasDisplayLight.otf') format('opentype');
+    font-display:block;
+}
+
+@font-face {
+    font-family: "TextaBook";
+    src: url('fonts/TextaBook.ttf') format('truetype');
+    font-display:block;
+}
+
+@font-face {
+    font-family: "TextaBold";
+    src: url('fonts/TextaBold.ttf') format('truetype');
+    font-display:block;
+}
+
+@media(max-width: 900px) {
+    .nome-conta {
+        display: none;
+    }
+}
+
+@media(min-width: 576px){
+    .formulario {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media(min-width: 768px){
+    .formulario {
+        padding-left: 180px;
+        padding-right: 180px;
+    }
+}
+
+@media(min-width: 992px){
+    .formulario {
+        padding-left: 280px;
+        padding-right: 280px;
+    }
+}
+
+@media(min-width: 1200px){
+    .formulario {
+        padding-left: 380px;
+        padding-right: 380px;
+    }
+}
+
+@media(min-width: 1400px){
+    .formulario {
+        padding-left: 480px;
+        padding-right: 480px;
+    }
+}
+
+body{
+    background-color:#0F0F0F;
+}
+
+header {
+    background-color: Black;
+    height: 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    user-select: none;
+}
+
+.navbar-nav {
+    --bs-nav-link-hover-color: #fc6e0d;
+}
+
+.navbar-toggler {
+    color: White;
+    font-size: 50px;
+}
+
+.navbar-collapse {
+    background-color: Black;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+#conteudo-conta {
+    width: 100%;
+    background-color: #fc6e0d;
+}
+
+.navbar-nav a {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: White
+}
+
+.navbar-nav a:hover {
+    color: #fc6e0d;
+}
+
+.opcoes-conta {
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 30px;
+}
+
+.opcoes-conta a {
+    color: White;
+}
+
+
+.opcoes-conta:hover, .opcoes-conta a:hover {
+    color: #fc6e0d;
+}
+
+.modal-content{
+    background-color: #0F0F0F;
+}
+
+.modal-header {
+    background-color: #0F0F0F;
+}
+
+.modal-header h1 {
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: #fc6e0d;
+}
+.btn-close {
+    opacity: 100%;
+    filter: invert(100%);
+}
+
+.sair {
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-color: Red;
+}
+
+.sair:hover {
+    color: Red !important;
+}
+
+.conta {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+#conta {
+    height: 40px;
+    margin-top: 20px;
+}
+
+#icon-conta {
+    width: 40px;
+    height: 40px;
+}
+
+.nome-conta {
+    font-size: 22px;
+    margin-right: 10px;
+    margin-top: 3px;
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: #fc6e0d;
+}
+
+
+#container-formulario {
+    margin-top: 15vh;
+    margin-bottom: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#container-formulario h1 {
+    color: #fc6e0d;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+
+#coluna {
+    padding: 5px 0px 5px 0px;
+}
+
+#nav li {
+    margin: 10px;
+    color: White;
+    cursor: pointer;
+}
+
+#nav a {
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+    font-weight: normal !important;
+}
+
+#nav span{
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+}
+
+#nav li:hover {
+    color:#fc6e0d;
+}
+
+#perfil {
+    background-color: #eb7425;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    margin-top: 18px;
+    margin-left: 50px;
+}
+
+#perfil h1 {
+    font-family: "Helvetica Neue LT", Helvetica;
+    color: White;
+    font-weight: bold;
+}
+
+.perfil-descricao p{
+    font-family: "TextaBook", Helvetica;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.polaroid {
+    background: #eee;
+    border: 1px solid #fff;
+    padding: 10px 10px 50px 10px;
+}
+
+.perfil-descricao {
+    text-align: start;
+}
+
+.mensagem-erro {
+    color: Red;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-weight: 600;
+}
+
+.form-control:focus {
+  border-color:  #fc6e0d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.formulario input {
+    text-align: center;
+    font-family: "Helvetica Neue LT", Helvetica;
+    font-size: 20px;
+    border-radius: 0px;
+}
+
+.border-primary-subtle {
+    border-color: #fc6e0d !important;
+}
+
+.btn-success {
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.modal {
+    --bs-modal-inner-border-radius: 0px;
+    --bs-border-radius-lg: 0px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.form-text {
+    color: White;
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.cadastrar {
+    color: White;
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
+
+.cadastrar:hover {
+    color: #fc6e0d;
+}
+
+.rodape{
+    top: 1;
+    bottom: 0;
+    position: fixed;
+    background-color: Black;
+    width: 100%;
+    color: White;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.creditos {
+    float: right;
+    color: White;
+    font-family: "Helvetica Neue LT", Helvetica;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
+.creditos-nome {
+    padding: 0px 0px 3px 0px; 
+    font-size: 16px; 
+    color: White;
+    text-decoration-line: underline;
+    text-decoration-color: #fc6e0d;
+}
+
+.creditos-nome:hover {
+    color:#fc6e0d !important;
+}
+
+.popover-body {
+    width: 225px;
+}
+
+.rodape span{
+    font-size: 20px;
+    font-family: "Helvetica Neue LT", Helvetica;
+}
