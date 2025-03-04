@@ -16,21 +16,37 @@ Route::get('/', [UserAccountController::class, 'signin'])->name('useraccount.sig
 Route::get('/{name}', [UserAccountController::class, 'index'])->name('useraccount')->middleware(AutenticacaoMiddleware::class);
 Route::get('/{name}/admin', [AdminController::class, 'admin'])->name('admin.index')->middleware(AutenticacaoAdmin::class);
 
-Route::get('/{name}/minhas-builds/the-division-2', [UserAccountController::class, 'buildsTheDivision2'])->name('useraccount.builds.td2')->middleware(AutenticacaoMiddleware::class);
-Route::get('/{name}/minhas-builds/the-division-2/adicionar/{erro?}', [UserAccountController::class, 'buildsTheDivision2Adicionar'])->name('useraccount.builds.td2.adicionar')->middleware(AutenticacaoMiddleware::class);
-Route::get('/{name}/minhas-builds/the-division-2/editar/{id}', [UserAccountController::class, 'buildsTheDivision2Editar'])->name('useraccount.builds.td2.editar')->middleware(AutenticacaoMiddleware::class);
-Route::post('/{name}/minhas-builds/the-division2/adicionar', [BuildsProcessoController::class, 'adicionar'])->name('useraccount.builds.td2.adicionar.post')->middleware(AutenticacaoMiddleware::class);
+Route::prefix('/{name}/minhas-builds/the-division-2')->group( function(){
+    Route::middleware([AutenticacaoMiddleware::class])->group(function(){
+        Route::get('/', [UserAccountController::class, 'buildsTheDivision2'])->name('useraccount.builds.td2');
+        Route::get('/adicionar/{erro?}', [UserAccountController::class, 'buildsTheDivision2Adicionar'])->name('useraccount.builds.td2.adicionar');
+        Route::get('/editar/{id}', [UserAccountController::class, 'buildsTheDivision2Editar'])->name('useraccount.builds.td2.editar');
+        Route::post('/adicionar', [BuildsProcessoController::class, 'adicionar'])->name('useraccount.builds.td2.adicionar.post');
+    });
+});
+
 Route::delete('/minhas-builds/excluir/{id}', [BuildsProcessoController::class, 'excluir'])->name('builds.excluir')->middleware(AutenticacaoMiddleware::class);
 
-Route::get('/{name}/minhas-midias/the-division-2', [UserAccountController::class, 'midiaTheDivision2'])->name('useraccount.midia.td2')->middleware(AutenticacaoMiddleware::class);
-Route::get('/{name}/minhas-midias/the-division-2/adicionar/{erro?}', [UserAccountController::class, 'midiaTheDivision2Adicionar'])->name('useraccount.midia.td2.adicionar')->middleware(AutenticacaoMiddleware::class);
-Route::post('/{name}/minhas-midias/the-division-2/adicionar/imagem', [MidiaProcessoController::class, 'adicionarImagem'])->name('useraccount.midia.td2.adicionar.imagem.post')->middleware(AutenticacaoMiddleware::class);
-Route::post('/{name}/minhas-midias/the-division-2/adicionar/video', [MidiaProcessoController::class, 'adicionarVideo'])->name('useraccount.midia.td2.adicionar.video.post')->middleware(AutenticacaoMiddleware::class);
+Route::prefix('/{name}/minhas-midias/the-division-2')->group( function(){
+    Route::middleware([AutenticacaoMiddleware::class])->group(function(){
+        Route::get('/', [UserAccountController::class, 'midiaTheDivision2'])->name('useraccount.midia.td2');
+        Route::get('/adicionar/{erro?}', [UserAccountController::class, 'midiaTheDivision2Adicionar'])->name('useraccount.midia.td2.adicionar');
+        Route::post('/adicionar/imagem', [MidiaProcessoController::class, 'adicionarImagem'])->name('useraccount.midia.td2.adicionar.imagem.post');
+        Route::post('/adicionar/video', [MidiaProcessoController::class, 'adicionarVideo'])->name('useraccount.midia.td2.adicionar.video.post');
+    });
+});
+
 Route::delete('/minhas-midia/excluir/{id}', [MidiaProcessoController::class, 'excluir'])->name('midia.excluir')->middleware(AutenticacaoMiddleware::class);
 
 Route::post('/autenticar', [UserAccountController::class, 'autenticar'])->name('useraccount.autenticar');
-Route::patch('/useraccount//username', [AccountSettingsController::class, 'alterarUsername'])->name('agente.alterar.username')->middleware(AutenticacaoMiddleware::class);
-Route::patch('/useraccount/password', [AccountSettingsController::class, 'alterarSenha'])->name('agente.alterar.senha')->middleware(AutenticacaoMiddleware::class);
-Route::patch('/useraccount/agentname', [AccountSettingsController::class, 'alterarNome'])->name('agente.alterar.nome')->middleware(AutenticacaoMiddleware::class);
-Route::patch('/useraccount/photo', [AccountSettingsController::class, 'alterarFoto'])->name('agente.alterar.foto')->middleware(AutenticacaoMiddleware::class);
+
+Route::prefix('/useraccount')->group( function(){
+    Route::middleware([AutenticacaoMiddleware::class])->group(function(){
+        Route::patch('/username', [AccountSettingsController::class, 'alterarUsername'])->name('agente.alterar.username');
+        Route::patch('/password', [AccountSettingsController::class, 'alterarSenha'])->name('agente.alterar.senha');
+        Route::patch('/agentname', [AccountSettingsController::class, 'alterarNome'])->name('agente.alterar.nome');
+        Route::patch('/photo', [AccountSettingsController::class, 'alterarFoto'])->name('agente.alterar.foto');
+    });
+});
+
 Route::post('/useraccount/signout', [SignOutController::class, 'signOut'])->name('signout');

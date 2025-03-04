@@ -36,14 +36,22 @@ Route::domain('account.blackwolvesclan.com.br')->group(function(){
 Route::get('/', [PaginaPrincipalController::class, 'index'])->name('home')->middleware(AutenticacaoMiddlewareHome::class);
 
 // Páginas de builds
-Route::get('/builds/the-division-2/ofensivo', [BuildsController::class, 'ofensivo'])->name('ofensivo')->middleware(AutenticacaoMiddleware::class);
-Route::get('/builds/the-division-2/defensivo', [BuildsController::class, 'defensivo'])->name('defensivo')->middleware(AutenticacaoMiddleware::class);
-Route::get('/builds/the-division-2/utilitario', [BuildsController::class, 'utilitario'])->name('utilitario')->middleware(AutenticacaoMiddleware::class);
-Route::get('/builds/the-division-2/raid', [BuildsController::class, 'raid'])->name('raid')->middleware(AutenticacaoMiddleware::class);
+Route::prefix('/builds')->group( function(){
+    Route::middleware([AutenticacaoMiddleware::class])->group(function(){
+        Route::get('/the-division-2/ofensivo', [BuildsController::class, 'ofensivo'])->name('ofensivo');
+        Route::get('/the-division-2/defensivo', [BuildsController::class, 'defensivo'])->name('defensivo');
+        Route::get('/the-division-2/utilitario', [BuildsController::class, 'utilitario'])->name('utilitario');
+        Route::get('/the-division-2/raid', [BuildsController::class, 'raid'])->name('raid');
+    });
+});
 
 // Páginas de midias
-Route::get('/midia/fotos', [MediaPageController::class, 'mediaPageScreenshot'])->name('media.screenshot')->middleware(AutenticacaoMiddleware::class);
-Route::get('/midia/videos', [MediaPageController::class, 'mediaPageVideos'])->name('media.videos')->middleware(AutenticacaoMiddleware::class);
+Route::prefix('/midia')->group( function(){
+    Route::middleware([AutenticacaoMiddleware::class])->group(function(){
+        Route::get('/fotos', [MediaPageController::class, 'mediaPageScreenshot'])->name('media.screenshot');
+        Route::get('/videos', [MediaPageController::class, 'mediaPageVideos'])->name('media.videos');
+    });
+});
 
 //Página publica para mídias
 Route::get('/galeria/fotos', [GaleriaController::class, 'fotos'])->name('galeria.fotos')->middleware(NaoAutenticado::class);
