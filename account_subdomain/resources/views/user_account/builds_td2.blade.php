@@ -69,7 +69,7 @@
                                 <div class="builds">
                                     <div class="row mb-3">
                                         <div class="col-auto">
-                                            <img src="https://blackwolvesclan.com.br/img/builds/<?php echo $build->code ?>.webp" width="460">
+                                            <img src="http://127.0.0.1:8000/img/builds/<?php echo $build->code ?>.webp" width="460">
                                         </div>
                                         <div class="col-auto">
                                             <p><strong>ID:</strong>

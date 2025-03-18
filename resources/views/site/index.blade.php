@@ -138,7 +138,7 @@
                                         const conteudo = result.mensagem;
                                         var imagens = '';
                                         for(let index = 0; index < conteudo.length; ++index){
-                                            imagens = imagens + "<div class='col'><a href='/img/screenshots/" + conteudo[index].nome_arquivo + '\'' + " target='_blank' rel='noopener noreferrer'><img class='img-thumbnail' src='http://blackwolvesclan.com.br/img/screenshots/" + conteudo[index].nome_arquivo + '\'' + "></a></div>";
+                                            imagens = imagens + "<div class='col'><a href='/img/screenshots/" + conteudo[index].nome_arquivo + '\'' + " target='_blank' rel='noopener noreferrer'><img class='img-thumbnail' src='{{route('home')}}/img/screenshots/" + conteudo[index].nome_arquivo + '\'' + "></a></div>";
                                         }
                                         $('#galeria').html(imagens);
                                         button.style.display = 'none';

@@ -3,9 +3,9 @@
 
 use App\Models\Builds;
 
-include 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\resources\views\processo_planilha\ler_planilha.blade.php';
+include base_path('resources/views/processo_planilha/ler_planilha.blade.php');
 
-$caminho = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\planilhas\gadget\\';
+$caminho = public_path('planilhas/gadget/');
 
 $instance = new LerPlanilha();
 $build = new Builds();

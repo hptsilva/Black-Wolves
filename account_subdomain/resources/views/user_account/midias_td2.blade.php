@@ -84,11 +84,11 @@
                                         $extensao = substr($midia->nome_arquivo, -4);
                                         if ($extensao == '.mp4'){?>
                                             <video width="460" controls>
-                                                <source src="https://blackwolvesclan.com.br/videos/{{$midia->nome_arquivo}}" type="video/mp4">
+                                                <source src="http://127.0.0.1:8000/videos/{{$midia->nome_arquivo}}" type="video/mp4">
                                             </video>
                                         <?php
                                         } else {?>
-                                            <img src="https://blackwolvesclan.com.br/img/screenshots/{{$midia->nome_arquivo}}" width="460">
+                                            <img src="http://127.0.0.1:8000/img/screenshots/{{$midia->nome_arquivo}}" width="460">
                                         <?php
                                         }
                                     ?>
