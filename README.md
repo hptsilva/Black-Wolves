@@ -5,10 +5,11 @@ Este é um projeto desenvolvido em Laravel, um framework PHP, que consiste em um
 
 ## Funcionalidades
 
-- **Autenticação de Usuários**: Sistema de login e registro de usuários com validação de formulários usando jQuery.
-- **Envio de Arquivos**: Funcionalidade para envio de arquivos com validação e feedback ao usuário.
-- **API para Formulários**: API desenvolvida para edição e autopreenchimento de formulários, facilitando a experiência do usuário.
-- **Interface Responsiva**: Utilização do Bootstrap para garantir que o site seja totalmente responsivo e adaptável a diferentes dispositivos.
+- **Autenticação de Usuários:** Sistema de login e registro de usuários com validação de formulários usando jQuery.
+- **Proteção de rotas:** Certas rotas precisam de autenticação para serem acessadas.
+- **Envio de Arquivos:** Funcionalidade para envio de arquivos com validação e feedback ao usuário.
+- **API para Formulários:** API desenvolvida para edição e autopreenchimento de formulários, facilitando a experiência do usuário.
+- **Interface Responsiva:** Utilização do Bootstrap para garantir que o site seja totalmente responsivo e adaptável a diferentes dispositivos.
 
 ## Tecnologias Utilizadas
 
