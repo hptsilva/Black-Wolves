@@ -51,7 +51,7 @@
                             <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('img/foto_perfil/'.$foto->nome_arquivo)}}" width="50"></span>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                                 <li class="dropdown-item">
-                                    <a href="https://account.blackwolvesclan.com.br/" target="_blank" rel="noopener noreferrer" >Meu agente</a>
+                                    <a href="{{env('ACCOUNT_SUBDOMAIN')}}" target="_blank" rel="noopener noreferrer" >Meu agente</a>
                                 </li>
                                 <li class="dropdown-item">
                                     <form method="POST" action="{{route('signout')}}">
