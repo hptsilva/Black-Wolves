@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 
-class MidiaProcessoController extends Controller
+class MidiaProcessoController
 {
 
     public function excluir(Request $request, $id){
@@ -39,8 +39,8 @@ class MidiaProcessoController extends Controller
             // pesquisa no banco de dados se a id do vídeo existe e quem solicitou a exclusão é o autor do vídeo.
             $video = $videos->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if (isset($video)){
-                $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\\';
-                $path_thumbnail = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\thumbnail\\';
+                $path = env('MIDIAS_VIDEO_PATH');
+                $path_thumbnail =  $path + 'thumbnail\\';
                 try{
 
                     // apagar o arquivo do servidor e de sua referência no banco de dados
@@ -70,7 +70,7 @@ class MidiaProcessoController extends Controller
 
             $screenshot = $screenshots->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if(isset($screenshot)) {
-                $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\img\screenshots\\' ;
+                $path = env('MIDIAS_SCREENSHOT_PATH') ;
                 try {
 
                     unlink($path.$screenshot->nome_arquivo);
@@ -83,7 +83,8 @@ class MidiaProcessoController extends Controller
                 } catch(Exception $erro){
 
                     return response()->json([
-                        'mensagem' => 'Houve um erro durante o processo de exclusão.',
+                        'sucesso' => false,
+                        'mensagem' => "Houve um erro durante o precesso de exclusão.",
                     ], 500);
 
                 }

@@ -8,7 +8,7 @@ use App\Models\FotosPerfil;
 use App\Models\Agentes;
 use Illuminate\Support\Facades\Hash;
 
-class AccountSettingsController extends Controller
+class AccountSettingsController
 {
     // Processa solicitação para alterar a senhar do usuário
     public function alterarSenha(Request $request){

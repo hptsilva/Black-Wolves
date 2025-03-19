@@ -9,7 +9,7 @@ use App\Models\TokenAutenticacoes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\RateLimiter; 
 
-class SignUpController extends Controller
+class SignUpController
 {
     public function signUp(Request $request){
 

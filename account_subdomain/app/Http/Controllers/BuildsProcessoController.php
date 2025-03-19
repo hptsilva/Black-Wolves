@@ -11,7 +11,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Ods;
 use Illuminate\Support\Facades\RateLimiter; 
 
-class BuildsProcessoController extends Controller
+class BuildsProcessoController
 {
     // Excluir build
     public function excluir (Request $request, $id){

@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Agentes;
-use App\Models\AgentesPerfil;
-use App\Models\Builds;
-use App\Models\Screenshots;
-use App\Models\Videos;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminController
 {
 
     public function admin($name){
@@ -27,7 +23,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $agentes = DB::table('agentes')->select('id', 'nome_agente', 'created_at')->get();
+        $agentes = DB::table('agentes')->select('id', 'nome_agente', 'created_at')->where('admin', '=', '0')->get();
         return response()->json([
             'sucesso' => true,
             'agentes' => $agentes,
@@ -98,16 +94,7 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        $agentes = new Agentes();
-        $perfil_agentes = new AgentesPerfil();
-        $builds = new Builds();
-        $screenshots = new Screenshots();
-        $videos = new Videos();
-        $screenshots->where('fk_id_agente', '=', $id)->delete();
-        $videos->where('fk_id_agente', '=', $id)->delete();
-        $builds->where('fk_id_agente', '=', $id)->delete();
-        $perfil_agentes->where('fk_id_agente', '=', $id)->delete();
-        $agente = $agentes->where('id', '=', $id)->delete();
+        $agente = Agentes::where('id', '=', $id)->delete();
 
         if($agente == 1) {
             return response()->json([

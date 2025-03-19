@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SignUpController;
-use Illuminate\Http\Request;
 use App\Http\Controllers\BuildsProcessoController;
 use App\Http\Middleware\AutenticacaoMiddleware;
 use Illuminate\Support\Facades\Route;

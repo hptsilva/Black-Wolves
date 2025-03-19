@@ -36,7 +36,7 @@ Route::prefix('/{name}/minhas-midias/the-division-2')->group( function(){
     });
 });
 
-Route::delete('/minhas-midia/excluir/{id}', [MidiaProcessoController::class, 'excluir'])->name('midia.excluir')->middleware(AutenticacaoMiddleware::class);
+Route::delete('/minhas-midias/excluir/{id}', [MidiaProcessoController::class, 'excluir'])->name('midia.excluir')->middleware(AutenticacaoMiddleware::class);
 
 Route::post('/autenticar', [UserAccountController::class, 'autenticar'])->name('useraccount.autenticar');
 

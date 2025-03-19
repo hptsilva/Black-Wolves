@@ -11,7 +11,7 @@ use App\Models\Videos;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Hash;
 
-class UserAccountController extends Controller
+class UserAccountController
 {
     // Enviar view de autenticação para o cliente
     public function signin(Request $request){
