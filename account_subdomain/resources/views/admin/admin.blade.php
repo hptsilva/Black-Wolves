@@ -65,7 +65,7 @@
                 return;
             }
             jQuery.ajax({
-                url: "http://account.blackwolvesclan.com.br/api/admin/contas/delete/" + id,
+                url: "{{env('PRINCIPAL_DOMAIN')}}" + id,
                 dataType: "json",
                 type: "DELETE",
             success:function(result){
@@ -84,7 +84,7 @@
                 return;
             }
             jQuery.ajax({
-                url: "http://account.blackwolvesclan.com.br/api/admin/contas/resetar/" + id,
+                url: "{{env('ACCOUNT_SUBDOMAIN')}}" + "/api/admin/contas/resetar/" + id,
                 dataType: "json",
                 type: "PATCH",
             success:function(result){
