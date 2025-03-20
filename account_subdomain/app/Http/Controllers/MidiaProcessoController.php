@@ -40,7 +40,7 @@ class MidiaProcessoController
             $video = $videos->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if (isset($video)){
                 $path = env('MIDIAS_VIDEO_PATH');
-                $path_thumbnail =  $path + 'thumbnail\\';
+                $path_thumbnail =  $path . 'thumbnail\\';
                 try{
 
                     // apagar o arquivo do servidor e de sua referência no banco de dados
@@ -135,7 +135,7 @@ class MidiaProcessoController
             $file = $request->file('imagem-midia');
             $extension = $arquivo->getClientOriginalExtension();
             $filename = $chave_unica.'.'.$extension;
-            $path = "/home/u554131440/public_html/public/img/screenshots";
+            $path = env('MIDIAS_SCREENSHOT_PATH');
             $file->move($path, $filename);
             $screenshot = new Screenshots();
             $screenshot->nome_arquivo = $filename;
@@ -143,7 +143,7 @@ class MidiaProcessoController
             $screenshot->titulo = "Sem título";
             $screenshot->save();
             return response()->json([
-                'mensagem' => "Arquivo adicionado com sucesso.",
+                'mensagem' => "Arquivo de imagem adicionado com sucesso",
             ], 200);
         } catch (Exception $erro){
             return response()->json([
@@ -192,15 +192,15 @@ class MidiaProcessoController
             $file_video = $request->file('video-midia');
             $extension = $arquivo_video->getClientOriginalExtension();
             $filename_video = $chave_unica.'.'.$extension;
-            $path = 'C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos';
+            $path = env('MIDIAS_VIDEO_PATH');
             $file_video->move($path, $filename_video);
             
             $file_thumbnail = $request->file('video-midia-thumbnail');
             $extension = $arquivo_thumbnail->getClientOriginalExtension();
             $filename_thumbnail = $chave_unica.'.'.$extension;
-            $path ='C:\Users\humbe\OneDrive\Área de Trabalho\Projeto\Projeto-Laravel\public\videos\thumbnail';
+            $path = env('MIDIAS_VIDEO_PATH') . 'thumbnail\\';
             $file_thumbnail->move($path, $filename_thumbnail);
-            
+
             $video = new Videos();
             $video->nome_arquivo = $filename_video;
             $video->fk_id_agente = $_SESSION['id'];
@@ -208,11 +208,11 @@ class MidiaProcessoController
             $video->thumbnail = $filename_thumbnail;
             $video->save();
             return response()->json([
-                'mensagem' => "Arquivo adicionado com sucesso.",
+                'mensagem' => "Arquivo de vídeo adicionado com sucesso.",
             ], 200);
         } catch (Exception $erro){
             return response()->json([
-                'mensagem' => ['mensagem' => 'Ocorreu um erro durante o processo.'],
+                'mensagem' => ['mensagem' => 'Ocorreu um erro durante o processo.' . $erro],
             ], 500);
         }
     }
