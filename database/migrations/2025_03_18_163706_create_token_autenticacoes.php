@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('token_autenticacoes', function (Blueprint $table) {
-            $table->char('id', 36)->primary();
+            $table->id()->primary();
             $table->char('token_uuid', 36);
             $table->string('usuario', 255);
             $table->enum('usado', ['SIM', 'NÃO']);

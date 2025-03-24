@@ -12,14 +12,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('agentes_perfils', function (Blueprint $table) {
-            $table->char('id', 36)->primary();
+            $table->id()->primary();
             $table->char('fk_id_agente', 36);
             $table->enum('patente', ['Recruta', 'Tenente', 'Subcomandante', 'Comandante'])->nullable();
             $table->date('membro_desde');
             $table->string('descricao', 550);
-            $table->char('fk_foto_perfil', 36);
+            $table->unsignedBigInteger('fk_foto_perfil');
             $table->timestamps();
-
             $table->foreign('fk_id_agente')->references('id')->on('agentes')->onDelete('cascade');
             $table->foreign('fk_foto_perfil')->references('id')->on('fotos_perfils')->onDelete('cascade');
         });

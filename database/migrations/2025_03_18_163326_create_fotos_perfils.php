@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fotos_perfils', function (Blueprint $table) {
-            $table->char('id', 36)->primary();
+            $table->id()->primary();
             $table->string('nome_arquivo', 255);
             $table->timestamps();
         });

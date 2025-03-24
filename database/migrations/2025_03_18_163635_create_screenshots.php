@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('screenshots', function (Blueprint $table) {
-            $table->char('id', 36)->primary();
+            $table->id()->primary();
             $table->string('nome_arquivo', 255);
             $table->string('titulo', 255);
             $table->string('thumbnail', 255)->nullable();

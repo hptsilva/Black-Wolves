@@ -77,37 +77,37 @@
                     <div class="row">
                         <div class=col>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="9088acf4-2847-4d61-a86b-a8012db869ae">
+                                <input class="form-check-input" type="radio" name="foto" value="2">
                                 <img src="{{asset('img/foto_perfil/1.jpg')}}" width="60"> 
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="f0c41b0e-6ab1-4f6e-878e-3fe4fc13adea">
+                                <input class="form-check-input" type="radio" name="foto" value="3">
                                 <img src="{{asset('img/foto_perfil/2.jpg')}}" width="60">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="2e5d61ec-1161-4f87-88ce-0c8b34755f25">
+                                <input class="form-check-input" type="radio" name="foto" value="4">
                                 <img src="{{asset('img/foto_perfil/3.jpg')}}" width="60">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="d968da04-adab-4942-b733-923ab236a6ec">
+                                <input class="form-check-input" type="radio" name="foto" value="5">
                                 <img src="{{asset('img/foto_perfil/4.jpg')}}" width="60">
                             </div>
                         </div>
                         <div class=col>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="481cacb0-aaa7-45a3-ab5d-e256793abe35">
+                                <input class="form-check-input" type="radio" name="foto" value="6">
                                 <img src="{{asset('img/foto_perfil/5.jpg')}}" width="60">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="6ef8eccc-e119-4a37-a4b8-0335c0ee8af4">
+                                <input class="form-check-input" type="radio" name="foto" value="7">
                                 <img src="{{asset('img/foto_perfil/6.jpg')}}" width="60">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="dbb2cf05-75a0-4262-9bce-c301f20f97be">
+                                <input class="form-check-input" type="radio" name="foto" value="8">
                                 <img src="{{asset('img/foto_perfil/7.jpg')}}" width="60">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto" value="bc4f7fc0-b5cf-4286-9ada-a29df77f4a7c">
+                                <input class="form-check-input" type="radio" name="foto" value="9">
                                 <img src="{{asset('img/foto_perfil/8.jpg')}}" width="60">
                             </div>
                         </div>
