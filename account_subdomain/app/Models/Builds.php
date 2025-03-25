@@ -10,5 +10,5 @@ class Builds extends Model
 {
     use HasFactory;
     use HasUuids;
-    protected $fillable = ['code', 'nome_build', 'classe', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'code', 'nome_build', 'fk_id_agente', 'classe', 'created_at', 'updated_at'];
 }

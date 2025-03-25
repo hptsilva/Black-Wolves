@@ -47,8 +47,7 @@ class AccountSettingsController
         }
 
         $id_user = $_SESSION['id'];
-        $user = new Agentes();
-        $conta = $user->where('id', '=', $id_user)->get()->first();
+        $conta = Agentes::where('id', '=', $id_user)->get()->first();
 
         if(isset($conta)){
             if (Hash::check($request->get('old_password'), $conta->password)) {
@@ -103,12 +102,11 @@ class AccountSettingsController
             ], 422);
         }
 
-        $agentes = new Agentes();
-        $agente = $agentes->where('nome_agente', '=', $nome_agente)->get()->first();
+        $agente = Agentes::where('nome_agente', '=', $nome_agente)->get()->first();
 
         if(!isset($agente->nome_agente)){
             
-            $conta = $agentes->where('id', '=', $_SESSION['id'])->get()->first();
+            $conta = Agentes::where('id', '=', $_SESSION['id'])->get()->first();
             $conta->nome_agente = $nome_agente;
             $conta->save();
             $_SESSION['nome'] = $nome_agente;
@@ -135,8 +133,7 @@ class AccountSettingsController
 
         if(isset($fotos->id)){
 
-            $agente = new AgentesPerfil();
-            $agente = $agente->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+            $agente = AgentesPerfil::where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             $agente->fk_foto_perfil = $foto;
             $agente->save();
             $_SESSION['id_foto_de_perfil'] = $foto;

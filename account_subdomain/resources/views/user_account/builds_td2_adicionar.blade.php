@@ -635,7 +635,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="tipo-coldre" class="form-label">Tipo:</label>
-                        <select class="form-select" name='tipo-coldre' id="tipo-coldre" onchange="funcaoTipoColdre(id, 'atributo-coldre', 'modificacao-coldre', 'valor-atributo-joelheira', 'valor-modificacao-coldre')">
+                        <select class="form-select" name='tipo-coldre' id="tipo-coldre" onchange="funcaoTipoColdre(id, 'atributo-coldre', 'modificacao-coldre', 'valor-atributo-coldre', 'valor-modificacao-coldre')">
                             <option value='normal'>Normal</option>
                             <option value='exotica'>Exótica</option>
                             <option value='nomeada'>Nomeada</option>
@@ -681,7 +681,7 @@
                         <div class="mb-3">
                             <input class="form-control" name="valor1-atributo-coldre" id="valor1AtributoColdre" type="number" min="0" step="0.1" placeholder="Insira o valor">
                         </div>
-                        <div id="valor-atributo-joelheira">
+                        <div id="valor-atributo-coldre">
                             <input class="form-control" name="valor2-atributo-coldre" id='input-atributo-coldre-2' type="number" min=0 step="0.1" placeholder="Insira o valor">
                         </div>
                     </div>

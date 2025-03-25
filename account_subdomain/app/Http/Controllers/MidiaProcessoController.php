@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Screenshots;
 use App\Models\Videos;
-use FFMpeg\FFMpeg;
-use FFMpeg\Coordinate\TimeCode;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Validator;
@@ -14,9 +12,6 @@ class MidiaProcessoController
 {
 
     public function excluir(Request $request, $id){
-
-        $screenshots = new Screenshots();
-        $videos = new Videos();
 
         $regras = [
             'tipo-arquivo' => 'required',
@@ -37,7 +32,7 @@ class MidiaProcessoController
         if ($request->get('tipo-arquivo') == 'arquivo mp4'){
 
             // pesquisa no banco de dados se a id do vídeo existe e quem solicitou a exclusão é o autor do vídeo.
-            $video = $videos->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+            $video = Videos::where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if (isset($video)){
                 $path = env('MIDIAS_VIDEO_PATH');
                 $path_thumbnail =  $path . 'thumbnail\\';
@@ -68,7 +63,7 @@ class MidiaProcessoController
 
         } else if ($request->get('tipo-arquivo') == 'arquivo webp'){
 
-            $screenshot = $screenshots->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+            $screenshot = Screenshots::where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if(isset($screenshot)) {
                 $path = env('MIDIAS_SCREENSHOT_PATH') ;
                 try {

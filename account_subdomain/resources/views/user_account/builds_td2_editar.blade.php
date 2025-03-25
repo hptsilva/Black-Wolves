@@ -1006,8 +1006,16 @@
                                 },
                                 error:function(xhr, status, error)
                                 {
+                                    var mensagens = xhr.responseJSON.mensagem;
+                                    var alerta = '<div class="alert alert-danger" role="alert">';
+                                    for (const chave in mensagens) {
+                                        alerta = alerta + mensagens[chave] + '<br>';
+                                    }
+                                    alerta = alerta + '</div>';
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    $('#mensagemFormEditarBuild').html(alerta);
+                                    var button = document.getElementById('buttonFormEditarBuild');
                                     button.disabled = false;
-                                    console.error('Erro:', error);
                                 }
                             })
                         })

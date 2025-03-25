@@ -6,6 +6,7 @@ use App\Models\Builds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Ods;
@@ -17,27 +18,66 @@ class BuildsProcessoController
     public function excluir (Request $request, $id){
 
         $id_agente = $_SESSION['id'];
-        $builds = new Builds();
-        $build = $builds->where('id', '=', $id)->where('fk_id_agente', '=', $id_agente)->get()->first();
+        $build = Builds::where('id', '=', $id)->where('fk_id_agente', '=', $id_agente)->get()->first();
 
         if(isset($build)){
 
             $planilhasPath = env('BUILD_PLANILHAS_PATH');
             $imagensPath = env('BUILD_IMAGENS_PATH');
-
+            $tempPath = env('TEMP_PATH'); // Define a temporary path for backup
+            $temp_planilha = "$tempPath\\$build->code.ods";
+            $temp_imagem = "$tempPath\\$build->code.webp";
             $caminho_planilha = "$planilhasPath\\$build->classe\\$build->code.ods";
             $caminho_imagem = "$imagensPath\\$build->code.webp";
-            unlink($caminho_imagem);
-            unlink($caminho_planilha);
-            $build->delete();
-            return response()->json([
-                'sucesso' => true,
-                'mensagem' => 'Build excluída com sucesso',
-            ], 200);
+            DB::beginTransaction();
+            try {
+        
+        
+                // Move files to temporary location
+                rename($caminho_planilha, $temp_planilha);
+                rename($caminho_imagem, $temp_imagem);
+        
+                $status = $build->delete();
+
+                if ($status  == false) {
+                    throw new Exception("Erro ao excluir a build.");
+                }
+        
+                // Delete files from temporary location
+                $excluir_imagem = unlink($temp_imagem);
+                $excluir_planilha = unlink($temp_planilha);
+
+                if ($excluir_imagem == False || $excluir_planilha == False) {
+                    throw new Exception("Erro ao excluir a build.");
+                }
+
+                DB::commit();
+        
+                return response()->json([
+                    'sucesso' => true,
+                    'mensagem' => 'Build excluída com sucesso.',
+                ], 200);
+            } catch (Exception $e) {
+                DB::rollBack();
+        
+                // Move files back to original location if an error occurs
+                if (file_exists($temp_planilha)) {
+                    rename($temp_planilha, $caminho_planilha);
+                }
+                if (file_exists($temp_imagem)) {
+                    rename($temp_imagem, $caminho_imagem);
+                }
+        
+                return response()->json([
+                    'sucesso' => false,
+                    'mensagem' => 'Erro: Código '.$e->getCode(),
+                ], 500);
+            }
+        
         } else {
             return response()->json([
                 'sucesso' => false,
-                'mensagem' => 'Build não encontrada',
+                'mensagem' => 'Build não encontrada.',
             ], 404);
         }
     }
@@ -142,7 +182,7 @@ class BuildsProcessoController
             return response()->json([
                 'sucesso' => false,
                 'mensagem' => $validator->messages(),
-            ], 422);
+            ], 400);
         }
 
         try{
@@ -443,8 +483,7 @@ class BuildsProcessoController
             ], 429);
         }
 
-        $builds = new Builds();
-        $build = $builds->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+        $build = Builds::where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
         if(isset($build)){
 
             try{
@@ -612,8 +651,7 @@ class BuildsProcessoController
            - Erro 24: Erro durante o processo da solicitação;
         */
 
-        $builds = new Builds();
-        $build = $builds->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+        $build = Builds::where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
 
         if(!isset($build)){
             return response()->json([
@@ -705,11 +743,12 @@ class BuildsProcessoController
 
         if ($validator->fails()) {
             return response()->json([
+                'status' => false,
                 'mensagem' => $validator->messages(),
-            ], 422);
+            ], 400);
         }
 
-        # seleciona qual diretório deve ser armazenado a planilha
+        # Seleciona qual diretório deve ser armazenado a planilha
         # Altere o caminho do diretório para o servidor de hospedagem
         switch($build->classe){
             case 'dps':
@@ -734,6 +773,14 @@ class BuildsProcessoController
         #Montar o escopo da planilha
         $arquivo = "$diretorio$build->code.ods";
         $spreadsheet = IOFactory::load($arquivo);
+
+        // Excluir todos os dados da planilha exceto os da coluna A
+        $sheet = $spreadsheet->getActiveSheet();
+        foreach ($sheet->getRowIterator() as $row) {
+            foreach ($row->getCellIterator('B') as $cell) {
+                $cell->setValue(null);
+            }
+        }
 
         // Adicionar nome e especialização da build.
         $spreadsheet->getActiveSheet()->setCellValue('B66', $request->get('nome-build'));
@@ -875,27 +922,43 @@ class BuildsProcessoController
         $writer->save($arquivo);
         $nome_build = $request->get('nome-build');
         $classe = $request->get('classe-build');
-        if ($classe != $build->classe){
-            rename($arquivo, env('BUILD_PLANILHAS_PATH') . "\\$classe\\$build->code.ods");
-        }
-        $build->nome_build = $nome_build;
-        $build->classe = $classe;
-        $build->save();
+        DB::beginTransaction();
+        try {
+            $build->nome_build = $nome_build;
+            $build->classe = $classe;
+            $build->save();
 
-        if (!isset($file)){
+            if ($classe != $build->classe){
+                rename($arquivo, env('BUILD_PLANILHAS_PATH') . "\\$classe\\$build->code.ods");
+            }
+    
+            if (!isset($file)){
+                return response()->json([
+                    'mensagem' => 'Build alterada com sucesso.',
+                ], 200);
+            }
+            $path = env('BUILD_IMAGENS_PATH') . '\\';
+            $status = unlink("$path$build->code.webp");
+            if (!$status){
+                throw new Exception("Erro ao alterar a build.");
+            }
+            $extension = $file->getClientOriginalExtension();
+            $filename = $build->code.'.'.$extension;
+            $file->move($path, $filename);
+    
+            DB::commit();
+
             return response()->json([
+                'sucesso' => True,
                 'mensagem' => 'Build alterada com sucesso.',
             ], 200);
+        } catch (Exception $e){
+            DB::rollBack();
+            return response()->json([
+                'sucesso' => False,
+                'mensagem' => 'Não foi possível alterar a build.',
+            ], 500);
         }
-        $path = env('BUILD_IMAGENS_PATH') . '\\';
-        unlink("$path$build->code.webp");
-        $extension = $file->getClientOriginalExtension();
-        $filename = $build->code.'.'.$extension;
-        $file->move($path, $filename);
-
-        return response()->json([
-            'mensagem' => 'Build alterada com sucesso.',
-        ], 200);
 
     }
 }

@@ -102,7 +102,7 @@ class SignUpController extends Controller
                     $perfil_agente->fk_id_agente = $usuario->id;
                     $perfil_agente->membro_desde = '2023-01-01';
                     $perfil_agente->descricao = "Alguma coisa";
-                    $perfil_agente->fk_foto_perfil = "";
+                    $perfil_agente->fk_foto_perfil = 1;
                     $perfil_agente->patente = 'Recruta';
                     $perfil_agente->save();
                     DB::commit();

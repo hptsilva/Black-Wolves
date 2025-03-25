@@ -91,14 +91,14 @@
                                                     {
                                                         jQuery('#form-cadastrar')[0].reset();
                                                         var alerta = '<div class="alert alert-success" role="alert">';
-                                                        alerta = alerta + result.confirmacao + '</div>';
+                                                        alerta = alerta + result.mensagem + '</div>';
                                                         $('#mensagem-cadastrar').html(alerta);
                                                         var button = document.getElementById('button-cadastrar');
                                                         button.disabled = false;
                                                     },
                                                     error:function(xhr, status, error)
                                                     {
-                                                        var mensagens = xhr.responseJSON.mensagens_de_erro;
+                                                        var mensagens = xhr.responseJSON.mensagem;
                                                         var alerta = '<div class="alert alert-danger" role="alert">';
                                                         for (const chave in mensagens) {
                                                             alerta = alerta + mensagens[chave] + '<br>';

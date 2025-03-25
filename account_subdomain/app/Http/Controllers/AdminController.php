@@ -67,10 +67,8 @@ class AdminController
      */
     public function update(Request $request, string $id)
     {
-
-        $agentes = new Agentes();
         
-        $agente = $agentes->where('id', '=', $id)->get()->first();
+        $agente = Agentes::where('id', '=', $id)->get()->first();
         if (isset($agente)){
 
             $agente->password = "00000000";

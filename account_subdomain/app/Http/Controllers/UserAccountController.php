@@ -41,14 +41,13 @@ class UserAccountController
         if ($name != $_SESSION['nome']){
             return redirect()->route('useraccount.builds.td2', ['name' => $_SESSION['nome']]);
         }else {
-            $builds = new Builds();
             $classe = array(
                 'dps' => 'Ofensivo',
                 'gadget' => 'Utilitário',
                 'tank' => 'Defensivo',
                 'raid' => 'Raid',
             );
-            $builds = $builds->where('fk_id_agente', '=', $_SESSION['id'])->orderBy('created_at')->paginate(3);
+            $builds = Builds::where('fk_id_agente', '=', $_SESSION['id'])->orderBy('created_at')->paginate(3);
             if($builds != []){
                 return view('user_account.builds_td2', ['builds' => $builds, 'classe' => $classe]);
             } else {
@@ -64,10 +63,8 @@ class UserAccountController
         if($name != $_SESSION['nome']){
             return redirect()->route('useraccount.midia.td2', ['name' => $_SESSION['nome']]);
         } else {
-            $screenshots = new Screenshots();
-            $videos = new Videos();
-            $screenshots = $screenshots->where('fk_id_agente', '=', $_SESSION['id']);
-            $midias = $videos->where('fk_id_agente', '=', $_SESSION['id'])->union($screenshots)->orderBy('created_at')->paginate(5);
+            $screenshots = Screenshots::where('fk_id_agente', '=', $_SESSION['id']);
+            $midias = Videos::where('fk_id_agente', '=', $_SESSION['id'])->union($screenshots)->orderBy('created_at')->paginate(5);
 
             if($screenshots != []){
                 return view('user_account.midias_td2', ['midias' => $midias]);
@@ -110,16 +107,13 @@ class UserAccountController
 
         $username = $request->get('user');
         $password = $request->get('password');
-        
-        $user = new Agentes();
 
-        $conta = $user->where('username', '=' , $username)->get()->first();
+        $conta = Agentes::where('username', '=' , $username)->get()->first();
 
         if(isset($conta->username)){
 
             if (Hash::check($password,$conta->password)) {
-                $agentes_perfil = new AgentesPerfil();
-                $perfil = $agentes_perfil->where('fk_id_agente', '=', $conta->id)->get()->first();
+                $perfil = AgentesPerfil::where('fk_id_agente', '=', $conta->id)->get()->first();
                 if (isset($perfil->id)){
                     session_start();
                     $_SESSION['id'] = $conta->id;
@@ -168,8 +162,7 @@ class UserAccountController
             return redirect()->route('useraccount.builds.td2.editar', ['name' => $_SESSION['nome'], 'id' => $id]);
         }else {
             
-            $builds = new Builds();
-            $build = $builds->where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
+            $build = Builds::where('id', '=', $id)->where('fk_id_agente', '=', $_SESSION['id'])->get()->first();
             if (isset($build)){
                 return view('user_account.builds_td2_editar', ['build_id' => $build->id, 'found' => true]);
             } else {

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\AgentesPerfil;
 use App\Models\Agentes;
 use App\Models\TokenAutenticacoes;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\RateLimiter; 
 
@@ -59,7 +61,8 @@ class SignUpController
         // se a validação falhar, é retornado mensagens no formato json
         if ($validacao->fails()) {
             return response()->json([
-                'mensagens_de_erro' => $validacao->messages(),
+                'sucesso' => false,
+                'mensagem' => $validacao->messages(),
             ], 422);
         }
 
@@ -68,8 +71,7 @@ class SignUpController
         $password = $request->get('password');
 
         // verifica se o código de cadastro existe na base de dados e se é válido
-        $token_autenticacao = new TokenAutenticacoes();
-        $existe = $token_autenticacao->where('token_uuid', '=' , $token)->where('usado', '=', 'NÃO')->get()->first();
+        $existe = TokenAutenticacoes::where('token_uuid', '=' , $token)->where('usado', '=', 'NÃO')->get()->first();
         if(isset($existe->token_uuid)){  
 
             // verifica se o nome de usuário já existe
@@ -78,33 +80,46 @@ class SignUpController
 
             if(isset($usuario->username)){
                 return response()->json([
-                    'mensagens_de_erro' =>  [ 'mensagem' => "Nome de usuário inválido!"],
+                    'sucesso' => false,
+                    'mensagem' =>  [ 'mensagem' => "Nome de usuário inválido!"],
                 ], 409);
             }else{
-                // Armazena os dados de cadastro na base dados para criação de conta
-                $cadastro->admin = '0';
-                $cadastro->nome_agente = $existe->usuario;
-                $cadastro->username = $user;
-                $cadastro->password = $password;
-                $cadastro->save();
-                $existe->usado = 'SIM';
-                $existe->save();
-                $usuario = $cadastro->where('username', '=', $user)->get()->first();
-                // Cria o perfil para a conta criada
-                $perfil_agente = new AgentesPerfil();
-                $perfil_agente->fk_id_agente = $usuario->id;
-                $perfil_agente->membro_desde = '2023-01-01';
-                $perfil_agente->descricao = "Alguma coisa";
-                $perfil_agente->fk_foto_perfil = "481cacb0-aaa7-45a3-ab5d-e256793abe35";
-                $perfil_agente->patente = 'Recruta';
-                $perfil_agente->save();
-                return response()->json([
-                    'confirmacao' => "Conta criada com sucesso!",
-                ], 201);
+                DB::beginTransaction();
+                try {
+                    // Armazena os dados de cadastro na base dados para criação de conta
+                    $cadastro->admin = '0';
+                    $cadastro->nome_agente = $existe->usuario;
+                    $cadastro->username = $user;
+                    $cadastro->password = $password;
+                    $cadastro->save();
+                    $existe->usado = 'SIM';
+                    $existe->save();
+                    $usuario = $cadastro->where('username', '=', $user)->get()->first();
+                    // Cria o perfil para a conta criada
+                    $perfil_agente = new AgentesPerfil();
+                    $perfil_agente->fk_id_agente = $usuario->id;
+                    $perfil_agente->membro_desde = '2023-01-01';
+                    $perfil_agente->descricao = "Alguma coisa";
+                    $perfil_agente->fk_foto_perfil = 1;
+                    $perfil_agente->patente = 'Recruta';
+                    $perfil_agente->save();
+                    DB::commit();
+                    return response()->json([
+                        'sucesso' => true,
+                        'mensagem' => "Conta criada com sucesso!",
+                    ], 201);
+                } catch(Exception $e){
+                    DB::rollBack();
+                    return response()->json([
+                        'sucesso' => false,
+                        'mensagem' =>  [ 'mensagem' => "Erro ao criar a conta. Informe o admistrador do site."],
+                    ], 500);
+                }
             }
         }else{
             return response()->json([
-                'mensagens_de_erro' => [ 'mensagem' => "Não foi possível criar uma conta!"],
+                'sucesso' => false,
+                'mensagem' => [ 'mensagem' => "Não foi possível criar uma conta!"],
             ], 406);
         }
 
